@@ -9,7 +9,11 @@ type Bin struct {
 	Name      string
 }
 
-func (b *Bin) NewBin(name string, private bool) *Bin {
+type BinList struct {
+	Bins []Bin
+}
+
+func (b *Bin) NewBin() *Bin {
 	return &Bin{
 		Id:        b.Id,
 		Private:   b.Private,
