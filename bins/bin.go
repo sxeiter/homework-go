@@ -1,4 +1,4 @@
-package bin
+package bins
 
 import (
 	"time"
@@ -6,9 +6,9 @@ import (
 
 type Bin struct {
 	Id        string    `json:"id"`
+	Name      string    `json:"name"`
 	Private   bool      `json:"private"`
 	CreatedAt time.Time `json:"created_at"`
-	Name      string    `json:"name"`
 }
 
 type BinList struct {
