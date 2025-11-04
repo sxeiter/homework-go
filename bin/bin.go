@@ -1,9 +1,6 @@
 package bin
 
 import (
-	"crypto/rand"
-	"encoding/hex"
-	"fmt"
 	"time"
 )
 
@@ -18,19 +15,11 @@ type BinList struct {
 	Bins []Bin
 }
 
-func NewBin(name string, private bool) *Bin {
+func NewBin(id string, name string, private bool) *Bin {
 	return &Bin{
-		Id:        generateId(),
+		Id:        id,
 		Private:   private,
 		CreatedAt: time.Now(),
 		Name:      name,
 	}
-}
-
-func generateId() string {
-	bytes := make([]byte, 8)
-	if _, err := rand.Read(bytes); err != nil {
-		return fmt.Sprintf("bin_%d", time.Now().UnixNano())
-	}
-	return "bin_" + hex.EncodeToString(bytes)
 }
